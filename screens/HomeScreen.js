@@ -1,8 +1,15 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import PushNotification from '../components/PushNotification';
+import { 
+  Image, 
+  Platform, 
+  StyleSheet, 
+  Text, 
+  TouchableOpacity, 
+  View 
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
 import { MonoText } from '../components/StyledText';
 
 export default function HomeScreen() {
@@ -42,11 +49,7 @@ export default function HomeScreen() {
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-        <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
-        </View>
+          <PushNotification />
       </View>
     </View>
   );

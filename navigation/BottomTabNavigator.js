@@ -1,9 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-
+import QRCodeScannerScreen from '../screens/QRCodeScannerScreen';
+import ShoppingMapScreen from '../screens/ShoppingMapScreen';
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -20,7 +21,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Get Started',
+          title: 'Home',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
         }}
       />
@@ -28,8 +29,24 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Links"
         component={LinksScreen}
         options={{
-          title: 'Resources',
+          title: 'Store',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="QRCodeScanner"
+        component={QRCodeScannerScreen}
+        options={{
+          title: 'QR Code',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-qr-scanner" />,
+        }}
+      />
+       <BottomTab.Screen
+        name="ShoppingMap"
+        component={ShoppingMapScreen}
+        options={{
+          title: 'Shopping Map',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-map" />,
         }}
       />
     </BottomTab.Navigator>
@@ -41,8 +58,12 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case 'Home':
-      return 'How to get started';
+      return 'Home';
     case 'Links':
-      return 'Links to learn more';
+      return 'Fájate';
+    case 'QRCodeScanner':
+      return 'QR code scanner';
+    case 'ShoppingMap':
+      return 'Stores';
   }
 }
